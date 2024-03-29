@@ -1,0 +1,56 @@
+<div class="">
+    <div class="row d-flex align-items-center text-center">
+            <form class="d-flex justify-content-between">
+                <mat-form-field class="col-lg-6 col-sm-12 pr-0">
+                    <mat-label>Holding Units</mat-label>
+                    <input matInput type="number" placeholder="50" (keyup)="updateValue('holdUnits', $event)">
+                </mat-form-field>
+                <mat-form-field class="col-lg-6 col-sm-12 pr-0">
+                    <mat-label>Holding CMP</mat-label>
+                    <input matInput type="number" placeholder="400"  (keyup)="updateValue('holdValue', $event)" >
+                </mat-form-field>
+            </form>
+            <form class="d-flex justify-content-between">
+                <mat-form-field class="col-lg-6 col-sm-12 pr-0">
+                    <mat-label>Order Units</mat-label>
+                    <input matInput type="number" placeholder="50" (keyup)="updateValue('avgUnits', $event)">
+                </mat-form-field>
+                <mat-form-field class="col-lg-6 col-sm-12 pr-0">
+                    <mat-label>Order CMP</mat-label>
+                    <input matInput type="number" placeholder="400"  (keyup)="updateValue('avgValues', $event)" >
+                </mat-form-field>
+            </form>
+    </div>
+    <ng-container *ngIf="values?.avgValues">
+        <mat-divider inset class="my-2" ></mat-divider>
+        <mat-button-toggle-group appearance="legacy" class="text-center" [value]="tab" vertical="false">
+            <mat-button-toggle (click)="calculateResult('add')" value="add">Avg +</mat-button-toggle>
+            <mat-button-toggle (click)="calculateResult('sub')" value="sub" [disabled]="disabled" >Book -</mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-divider inset class="my-2"></mat-divider>
+        <ng-container *ngIf="totalUnits >= 0 || this.values?.holdUnits < 1">
+            <table class="text-center mat-elevation-z8">
+                <tr>
+                    <td class="text-right">Now holding :</td>
+                    <td class="text-left">{{totalUnits}} units</td>
+                </tr>
+                <tr>
+                    <td class="text-right">Hold value :</td>
+                    <td class="text-left">{{totalHoldValue}}</td>
+                </tr>
+                <tr>
+                    <td class="text-right">Order value :</td>
+                    <td class="text-left">{{totalAvgValue}}</td>
+                </tr>
+                <tr *ngIf="tab == 'add'">
+                    <td class="text-right">Total Average : </td>
+                    <td class="text-left">{{totalAverage}} / unit </td>
+                </tr>
+                <tr *ngIf="tab == 'sub'">
+                    <td class="text-right"> Total Profit : </td>
+                    <td class="text-left">{{totalAverage}} </td>
+                </tr>
+            </table>
+        </ng-container>
+    </ng-container>
+</div>

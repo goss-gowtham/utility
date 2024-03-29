@@ -1,6 +1,23 @@
 <div style="height: 100vh !important;" class="w-100 container-fluid p-0 text-center">
-  <mat-toolbar>
+  <mat-toolbar class="d-flex justify-content-between">
     <span>Utilities</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/space">
+        <mat-icon>verified</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item routerLink="/stock">
+        <mat-icon>trending_up</mat-icon>
+        <span>Stock</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>work</mat-icon>
+        <span>Projects</span>
+      </button>
+    </mat-menu>    
   </mat-toolbar>
   <mat-card>
   <router-outlet></router-outlet>

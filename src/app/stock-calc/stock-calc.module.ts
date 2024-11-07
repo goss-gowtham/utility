@@ -9,6 +9,7 @@ import { StockCalcComponent } from './stock-calc.component';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatInputModule,
     MatButtonToggleModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
   ]
 })
 export class StockCalcModule { }

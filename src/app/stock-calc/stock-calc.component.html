@@ -47,8 +47,12 @@
                     <td class="text-left">{{totalAverage}} / unit </td>
                 </tr>
                 <tr *ngIf="tab == 'sub'">
-                    <td class="text-right"> Total Profit : </td>
+                    <td class="text-right"> Total P&L : </td>
                     <td class="text-left">{{totalAverage}} </td>
+                </tr>
+                <tr>
+                    <td class="text-right"> % difference : </td>
+                    <td class="text-left">{{percDiff}} </td>
                 </tr>
             </table>
         </ng-container>

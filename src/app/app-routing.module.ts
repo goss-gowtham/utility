@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./stock-calc/stock-calc.module').then(m => m.StockCalcModule),
   },
   {
-    path: 'home',
+    path: 'space',
     component: HomeComponent,
   },
   {

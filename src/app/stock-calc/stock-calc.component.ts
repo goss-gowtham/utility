@@ -14,6 +14,7 @@ export class StockCalcComponent implements OnInit {
   totalUnits: number = -1;
   tab: string = 'add';
   disabled: boolean = false;
+  percDiff: number = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -33,9 +34,9 @@ export class StockCalcComponent implements OnInit {
     const avgValues = this.values.avgValues;
     this.disabled = holdUnits < avgUnits || holdUnits < 1;
 
-    this.totalHoldValue = (holdUnits * holdValue)
-    this.totalAvgValue = (avgUnits * avgValues);
-
+    this.totalHoldValue = Number((holdUnits * holdValue).toFixed(2));
+    this.totalAvgValue = Number((avgUnits * avgValues).toFixed(2));
+    this.percDiff = ((this.totalHoldValue - this.totalAvgValue)/this.totalAvgValue) * 100;
     this.tab = tab;
     this.totalUnits = this.addSubValues(holdUnits, avgUnits)
     this.calculateTotalAverage(this.totalUnits);
@@ -46,7 +47,7 @@ export class StockCalcComponent implements OnInit {
     if (totalUnits > 0 && this.tab == 'add') {
       this.totalAverage = (total / totalUnits);
     } else {
-      this.totalAverage = Math.abs(total)
+      this.totalAverage = total;
     }
     this.totalAverage = Number(this.totalAverage.toFixed(2));
   }

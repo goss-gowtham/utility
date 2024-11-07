@@ -10,10 +10,12 @@ import { MatInputModule } from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { TwoDecimalPipe } from '../two-decimal.pipe';
 
 @NgModule({
   declarations: [
-    StockCalcComponent
+    StockCalcComponent,
+    TwoDecimalPipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,7 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     MatButtonToggleModule,
     MatDividerModule,
-    MatTableModule
-  ]
+    MatTableModule,
+]
 })
 export class StockCalcModule { }

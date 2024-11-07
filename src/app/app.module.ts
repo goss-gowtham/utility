@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { TwoDecimalPipe } from './two-decimal.pipe';
 
 @NgModule({
   declarations: [

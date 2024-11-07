@@ -36,23 +36,23 @@
                 </tr>
                 <tr>
                     <td class="text-right">Hold value :</td>
-                    <td class="text-left">{{totalHoldValue}}</td>
+                    <td class="text-left">{{totalHoldValue | twoDecimal}}</td>
                 </tr>
                 <tr>
                     <td class="text-right">Order value :</td>
-                    <td class="text-left">{{totalAvgValue}}</td>
+                    <td class="text-left">{{totalAvgValue | twoDecimal}}</td>
                 </tr>
                 <tr *ngIf="tab == 'add'">
                     <td class="text-right">Total Average : </td>
-                    <td class="text-left">{{totalAverage}} / unit </td>
+                    <td class="text-left">{{totalAverage | twoDecimal}} / unit </td>
                 </tr>
                 <tr *ngIf="tab == 'sub'">
                     <td class="text-right"> Total P&L : </td>
-                    <td class="text-left">{{totalAverage}} </td>
+                    <td class="text-left">{{totalAverage | twoDecimal}} </td>
                 </tr>
                 <tr>
                     <td class="text-right"> % difference : </td>
-                    <td class="text-left">{{percDiff}} </td>
+                    <td class="text-left">{{percDiff | twoDecimal}} </td>
                 </tr>
             </table>
         </ng-container>

@@ -34,9 +34,10 @@ export class StockCalcComponent implements OnInit {
     const avgValues = this.values.avgValues;
     this.disabled = holdUnits < avgUnits || holdUnits < 1;
 
-    this.totalHoldValue = Number((holdUnits * holdValue).toFixed(2));
-    this.totalAvgValue = Number((avgUnits * avgValues).toFixed(2));
-    this.percDiff = ((this.totalHoldValue - this.totalAvgValue)/this.totalAvgValue) * 100;
+    this.totalHoldValue = (holdUnits * holdValue);
+    this.totalAvgValue = (avgUnits * avgValues);
+    this.percDiff = (Math.abs(this.totalHoldValue - this.totalAvgValue)/((this.totalHoldValue + this.totalAvgValue)/2)) * 100;
+    this.percDiff = this.percDiff;
     this.tab = tab;
     this.totalUnits = this.addSubValues(holdUnits, avgUnits)
     this.calculateTotalAverage(this.totalUnits);
@@ -49,7 +50,7 @@ export class StockCalcComponent implements OnInit {
     } else {
       this.totalAverage = total;
     }
-    this.totalAverage = Number(this.totalAverage.toFixed(2));
+    this.totalAverage = this.totalAverage;
   }
 
   addSubValues(num1: number, num2: number) {
@@ -60,7 +61,7 @@ export class StockCalcComponent implements OnInit {
       result = num1 - num2;
     }
 
-    return Number(result.toFixed(2));
+    return result;
   }
 
 }

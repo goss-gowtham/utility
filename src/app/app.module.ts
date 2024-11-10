@@ -11,6 +11,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TwoDecimalPipe } from './two-decimal.pipe';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { TwoDecimalPipe } from './two-decimal.pipe';
     MatIconModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/utility/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

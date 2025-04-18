@@ -1,0 +1,61 @@
+// Ensure the host takes up necessary space and uses flex for toolbar layout
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Use min-height for flexibility
+}
+
+// Style both toolbars
+mat-toolbar {
+  background-color: #ffffff; // White background for toolbars
+  color: #333;            // Dark text/icons
+  flex-shrink: 0;         // Prevent toolbars from shrinking
+
+  // Specific border for the top toolbar
+  &:first-of-type {
+    border-bottom: 1px solid #d1d9e0; // Subtle border bottom
+  }
+
+  // Specific border for the bottom toolbar
+  &:last-of-type {
+    border-top: 1px solid #d1d9e0;    // Subtle border top
+  }
+
+  a {
+    color: #007bff; // Style links in the toolbar
+    text-decoration: none;
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Style the mat-card containing the router outlet
+mat-card {
+  margin: 20px auto; // Center horizontally with vertical spacing
+  padding: 0; // Remove default padding
+  max-width: 960px; // Limit content width
+  width: 100%; // Ensure it takes available width up to max-width
+  background: none; // Ensure no background color
+  box-shadow: none; // Remove default card shadow
+  border-radius: 0; // Remove default border-radius
+  overflow-y: auto; // Allow scrolling if content exceeds available space
+  box-sizing: border-box; // Include padding/border in element's total width/height
+
+  // Ensure the router outlet container inside the card doesn't add extra spacing/styles
+  // This targets the component loaded into the outlet.
+  > *:first-child {
+      display: block; // Ensure it behaves predictably
+      height: 100%; // Allow it to fill the card space if needed by the component
+      // Note: The loaded component's styles (like HomeComponent's :host) might override this.
+  }
+}
+
+// Adjustments for the main container div (from HTML)
+// .container-fluid is a Bootstrap class, p-0 removes padding.
+.container-fluid {
+  flex-grow: 1; // Make the container take up space between toolbars
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,139 @@
+// Host element styling
+:host {
+  display: flex; // Use flexbox to center the card vertically and horizontally
+  justify-content: center;
+  align-items: center;
+  padding: 40px; // Add padding around the card
+  min-height: calc(100vh - 80px); // Ensure host takes up viewport height minus padding
+  box-sizing: border-box; // Include padding in height calculation
+}
+
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 900px; // Limit card width for larger screens
+  width: 100%; // Allow card to shrink on smaller screens
+
+  .content {
+    // General content styling if needed, otherwise rely on element styles
+    letter-spacing: normal; // Reset letter-spacing if not desired
+
+    h1 {
+      font-family: 'PT Serif', serif; // Keep specified font if desired
+      font-size: 2rem; // Adjust size for hierarchy
+      font-weight: 700; // Make heading bold
+      margin-bottom: 20px; // Add space below heading
+      // Remove display: inline-block, padding, width, transform
+    }
+
+    p {
+      font-size: 1rem; // Standard paragraph size
+      line-height: 1.6; // Improve readability
+      margin-bottom: 15px; // Space between paragraphs
+      // Remove display: inline-block, padding, font-weight: 100
+    }
+
+    h6 {
+      font-size: 0.9rem; // Smaller heading size
+      font-weight: 700; // Make it bold
+      color: #555; // Slightly muted color
+      margin-top: 25px; // Space above subheading
+      margin-bottom: 10px; // Space below subheading
+      // Remove font-weight: 100
+    }
+
+    a {
+      color: #007bff; // Standard link color
+      font-weight: 700; // Keep bold if desired
+      text-decoration: none; // Remove underline by default
+      transition: color 0.2s ease-in-out; // Smooth hover transition
+      // Remove box-shadow
+
+      &:hover {
+        color: #0056b3; // Darken link on hover
+        text-decoration: underline; // Add underline on hover
+      }
+    }
+
+    .columns-container { // New container for flex layout
+      display: flex;
+      flex-wrap: wrap; // Allow columns to wrap on smaller screens
+      gap: 20px; // Space between columns
+      margin-top: 16px;
+    }
+
+    .column {
+      flex: 1; // Allow columns to grow and shrink
+      min-width: 250px; // Minimum width before wrapping
+      font-size: 0.9em; // Slightly smaller font size for columns
+      // Remove display: inline-block, width: 50vw
+
+      * {
+        // Reset specific styles from old rules if necessary
+        margin: 0 0 5px 0; // Simpler margin for items in columns
+        display: block; // Ensure items are block-level for layout
+        // Remove display: inline-block
+      }
+    }
+
+    .tabs {
+      margin-top: 30px; // Add space above the tabs section
+      text-align: right; // Align tabs content to the right
+      font-size: 0.9em;
+      // Remove position: absolute
+
+      .tab {
+        display: inline-block; // Use inline-block for horizontal layout
+        margin-left: 16px; // Space between tabs
+        // Remove float: right, font-weight: 100
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          // Specific link styling for tabs if needed
+          text-decoration: none !important; // Override hover if needed
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments if necessary
+@media (max-width: 768px) {
+  :host {
+    padding: 20px; // Reduce padding on smaller screens
+    min-height: calc(100vh - 40px);
+  }
+
+  .card {
+    padding: 20px; // Reduce card padding
+
+    .content {
+      h1 {
+        font-size: 1.5rem; // Smaller heading
+      }
+
+      .columns-container {
+        flex-direction: column; // Stack columns vertically
+        gap: 15px;
+      }
+
+      .column {
+        min-width: 100%; // Ensure columns take full width when stacked
+      }
+
+      .tabs {
+        text-align: center; // Center tabs on small screens
+        margin-top: 20px;
+
+        .tab {
+          margin: 0 8px; // Adjust spacing
+        }
+      }
+    }
+  }
+}

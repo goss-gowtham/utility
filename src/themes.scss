@@ -1,0 +1,21 @@
+// Import Angular Material theming functions (using older @import)
+@import '~@angular/material/theming';
+
+// Include the core styles for Angular Material core functionality (using older name)
+@include mat-core();
+
+// Define the color palettes from Angular Material colors
+// Primary palette: Blue Grey
+$primary-palette: mat-define-palette($mat-blue-grey);
+
+// Accent palette: Pink (using specific hues A200, A100, A400)
+$accent-palette: mat-define-palette($mat-pink, A200, A100, A400);
+
+// Warn palette: Red
+$warn-palette: mat-define-palette($mat-red);
+
+// Define the light theme using the palettes (using older function)
+$theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
+
+// Include the theme styles for all Angular Material components (using older function)
+@include angular-material-theme($theme);
